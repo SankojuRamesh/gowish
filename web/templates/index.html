@@ -1,0 +1,507 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+  <body class="full-screen-preview">
+<div class="main"   id="app">
+  <header>
+    <div class="wpg-topbar">
+      <div class="top-nav-flex top-color">
+        <div><i class="fas fa-angle-left"></i></div>
+        <div class="top-nav-flex"><ul>
+            <li>Home</li>
+            <li>All Templates</li> 
+            </ul>
+        </div>
+      </div>
+      <div class="top-nav-flex top-color">
+        <ul>
+          <li style="color: #fb9000;
+          font-style: italic;
+          font-family: serif;" @click="render_object()">Render</i></li>
+            <li><i class="fas fa-search-plus"></i></li>
+            <li><i class="fas fa-search-minus"></i></li>
+            <li><i class="fas fa-undo"></i></li>
+        </ul>
+      </div>
+    
+     </div>
+   </header>
+  
+  
+  <section>
+    <div class="body-app top-color">
+      <div class="row-one">
+          <div class="cols-one">
+              <div class="body-ul">
+                  <ul>
+                  <li><button><i class="fas fa-italic"></i></button></li>
+                  <li><button><i class="fas fa-pencil-alt"></i></button></li>
+                  <li><button><i class="fas fa-image"></i></button></li>
+                  <li><button><i class="fas fa-star"></i></button></li>
+                  <li><button><i class="fas fa-star"></i></button></li>
+                  <li><button><i class="fas fa-star"></i></button></li>
+                  <li><button><i class="fas fa-star"></i></button></li>
+                  <li><button><i class="fas fa-star"></i></button></li>
+  
+              </ul>
+              </div>
+          </div>
+          <div class="cols-two">
+            <div class="wpg-project" id="canvas_div">
+             
+              
+            <canvas id="canvas" style="border-style: groove;"> 
+            </canvas>
+            <input type="file" id="imageLoader" style="display:none;" accept="image/*"/>
+           
+          
+          </div>
+            <!-- style="
+            position: absolute;
+          width: 1053.33px;
+          height:auto;
+          left: 0px;
+          top: 0px;
+          touch-action: none;
+          user-select: none;" -->
+        </div>
+        <div class="cols-three">
+          <div class="wpg-tab__project">
+               <h3 class="wpg-tab__title">
+              <div class="flex3 ">
+                <div class="flex32" style="border-right: 2px solid black;" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><span>Layers</span><button class="wpg-button"><i class="fas fa-chevron-down icon"></i></button>
+                </div>
+                <div class="flex32"  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><span>Composition</span><button class="wpg-button"><i class="fas fa-chevron-down icon"></i></button></div>
+              </div>
+              <div class="layer1 display-layer ">
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="hello" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="img" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input"  value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled ></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem"  disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+              </div>
+              <div class="layer1 composition-content" style="display: none;">
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+                <div class="flex32">
+                  <i class="fas fa-grip-vertical"></i><div class="wpg-settings-layer__title wpg-input-wrapper"><input type="text" class="wpg-input" value="lorem" disabled></div><i class="fas fa-times"></i>
+                </div>
+               
+                
+              </div>
+            </h3> 
+            <h3 class="wpg-tab__title  margintop-12">
+           
+              <div class="flex33" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false"><span>Transform</span><button class="wpg-button"><i class="fas fa-chevron-down icon"></i></button>
+              </div>
+           
+            <div class="layer1 height-50 composition2-content">
+              <div class="flex32">
+                <div class="transform-flex">
+                 <div class="flex32">
+                   <label for="wpg_label_left" class="wpg-label">Left</label>
+                   <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                     <i class="fas fa-plus"></i>
+                   </button>
+                 
+                 </div>
+                 <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                  
+                </div>
+                <div >
+                 <div class="flex32">
+                   <label for="wpg_label_left" class="wpg-label">Top</label>
+                   <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                     <i class="fas fa-plus"></i>
+                   </button>
+                 
+                 </div>
+                 <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                  
+                </div>
+                  
+               </div>
+               <div class="flex32 margintop-1">
+                 <div class="transform-flex">
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Scale X</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  
+                  </div>
+                  <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                   
+                 </div>
+                 <div >
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Scale Y</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  
+                  </div>
+                  <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                   
+                 </div>
+                   
+                </div>
+                
+                <div class="flex32 margintop-1">
+                 <div class="transform-flex">
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Skew X</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  
+                  </div>
+                  <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                   
+                 </div>
+                 <div >
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Skew Y</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  
+                  </div>
+                  <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                   
+                 </div>
+                   
+                </div>
+                <div class="flex32 margintop-1">
+                 <div class="transform-flex1">
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Transform Origin</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                   </div>
+                   <select class="wpg-settings-shape__transform-origin-select wpg-select">
+                     <option value="0 0">&nbsp;&nbsp;&nbsp;Custom</option>
+                     <option value="left top">&nbsp;&nbsp;&nbsp;Left Top</option>
+                     <option value="center top">&nbsp;&nbsp;&nbsp;Center Top</option>
+                     <option value="right top">&nbsp;&nbsp;&nbsp;Right Top</option>
+                     <option value="left center">&nbsp;&nbsp;&nbsp;Left Center</option>
+                     <option value="center center" selected="&quot;true&quot;">&nbsp;&nbsp;&nbsp;Center Center</option>
+                     <option value="right center">&nbsp;&nbsp;&nbsp;Right Center</option>
+                     <option value="left bottom">&nbsp;&nbsp;&nbsp;Left Bottom</option>
+                     <option value="center bottom">&nbsp;&nbsp;&nbsp;Center Bottom</option>
+                     <option value="right bottom">&nbsp;&nbsp;&nbsp;Right Bottom</option>
+                   </select>
+                 </div>
+                </div>
+                <div class="flex32 margintop-1 mb-2">
+                 <div class="transform-flex1">
+                  <div class="flex32">
+                    <label for="wpg_label_left" class="wpg-label">Angle</label>
+                    <button class="wpg-settings-shape__add-to-stream-button wpg-button" data-property="left" title="Add to Timeline" aria-label="Add to Timeline">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                   </div>
+                  <input type="number" id="wpg_label_left" data-property="left" class="wpg-settings-shape__transform-input wpg-input" value="640.00">
+                 </div>
+                </div>
+            </div>
+          </h3>
+            
+          </div>
+        </div>
+
+    </div>
+   
+ </div>
+
+</section>
+<footer>
+  <div class="wpg-editor">
+    <p class="wpg-powered-by-text"></p>
+  </div>
+</footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js" integrity="sha512-CeIsOAsgJnmevfCi2C7Zsyy6bQKi43utIjdA87Q0ZY84oDqnI0uwfM9+bKiIkI75lUeI00WG/+uJzOmuHlesMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const layerButton = document.getElementById('dropdownMenuButton1');
+    const compositionButton = document.getElementById('dropdownMenuButton2');
+    const composition2 = document.getElementById('dropdownMenuButton3');
+
+    const layerContent = document.querySelector('.display-layer');
+    const compositionContent = document.querySelector('.composition-content');
+    const composition2Content = document.querySelector('.composition2-content');
+
+
+    layerButton.addEventListener('click', function() {
+      // Toggle layer1 content
+      if (layerContent.style.display === 'none' || !layerContent.style.display) {
+        layerContent.style.display = 'flex';
+      } else {
+        layerContent.style.display = 'none';
+      }
+      // Hide composition content
+      compositionContent.style.display = 'none';
+    });
+
+    compositionButton.addEventListener('click', function() {
+      // Toggle composition content
+      if (compositionContent.style.display === 'none' || !compositionContent.style.display) {
+        compositionContent.style.display = 'block';
+      } else {
+        compositionContent.style.display = 'none';
+      }
+      // Hide layer1 content
+      layerContent.style.display = 'none';
+    });
+
+    composition2.addEventListener('click', function() {
+      // Toggle composition content
+      if (composition2Content.style.display === 'none' || !composition2Content.style.display) {
+        composition2Content.style.display = 'block';
+      } else {
+        composition2Content.style.display = 'none';
+      }
+      // Hide layer1 content
+      // composition2Content.style.display = 'none';
+    });
+  });
+ 
+
+</script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script>
+ new Vue({
+    el: '#app',
+    data: {
+        title: 'Vue.js with Fabric.js and Bootstrap',
+        canvas_div: $("#canvas_div"), 
+        layers : [
+          
+        ],
+        composit: null,
+        canvas  : null,
+        layers : [],
+    },
+    mounted() {
+      this.set_canvas()
+       
+       
+    },
+    methods: {
+      render_object(){
+        url = "http://localhost:5000/send?project_id=1" 
+        axios
+          .get(url)
+          .then((response) => { 
+            alert("render  stared...")
+          })
+       
+      },
+      set_canvas(){ 
+        comp_id = 1
+        url = "http://74.208.123.31:50001/composits/"+comp_id+"/" 
+        axios
+          .get(url)
+          .then((response) => { 
+            this.composit =   response.data
+            
+            this.get_layers(comp_id)
+          })
+      },
+      get_layers(comp_id) {
+        url = "http://74.208.123.31:50001/layers/?compositid="+comp_id
+          axios
+          .get(url)
+          .then((response) => {             
+            response.data.forEach(layer => { 
+              this.layers.push(layer)
+            })
+              setTimeout(()=>{
+                this.canvas_load()
+              },100)
+              
+          })
+         
+      },
+
+      canvas_load(){
+        var canvas = new fabric.Canvas('canvas',{
+                width:this.composit.width ,
+                height:this.composit.height,
+                backgroundColor:"green"
+        });
+
+        this.layers.forEach(layer => {  
+          position = layer.position.split(',')
+          console.log(layer)
+          fabric.Image.fromURL(layer.image, img => {
+            img.set(
+              { left: position[0], 
+                top: position[1],
+                scaleX: 0.5,
+                scaleY: 0.5,
+                width :  parseInt ( layer.width),
+                height :  parseInt (layer.height),
+
+             });
+            canvas.add(img);
+            
+        });
+       
+      
+     })
+      canvas.renderAll(); 
+      setTimeout(()=>{
+         this.resizeCanvas(canvas)
+      },100)  
+      
+
+      },
+      // Function to resize the canvas and scale objects
+  resizeCanvas(canvas) {
+    setTimeout(()=>{
+       
+    const container = document.getElementById('canvas_div');
+    
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+    canvas.setWidth(containerWidth);
+    canvas.setHeight(containerHeight);  
+    const canvasWidth = canvas.getWidth();
+    const canvasHeight = canvas.getHeight(); 
+    const scaleX = containerWidth / canvasWidth;
+    const scaleY = containerHeight / canvasHeight;
+
+    canvas.getObjects().forEach((obj) => {
+      const scaleX =   canvasWidth/obj.width;
+      const scaleY =  canvasHeight /obj.height ;
+       
+       obj.top =  0 
+       obj.left = 0 
+       obj.scaleX = 0.5
+       obj.scaleY =  0.5 
+       obj.setCoords();
+    })
+    canvas.renderAll();  
+     
+    var imageLoader = document.getElementById('imageLoader');
+    canvas.on('mouse:dblclick', function(event) {
+
+              var target = event.target;
+            
+              if (target && target.type === 'image') {
+                console.log(target)
+                imageLoader.targetImage = target;
+                imageLoader.click();
+          
+
+              }
+            
+            })
+            imageLoader.addEventListener('change', function(event) {
+
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                
+                reader.onload = function(f) {
+                  alert(reader)
+
+                  var data = f.target.result;
+                  
+
+                  // Replace the target image with the selected file
+                  fabric.Image.fromURL(data, function(newImg) {
+                   
+                      // Preserve the position and size of the original image
+                      newImg.set({
+                          left: imageLoader.targetImage.left,
+                          top: imageLoader.targetImage.top,
+                          scaleX: imageLoader.targetImage.scaleX,
+                          scaleY: imageLoader.targetImage.scaleY,
+                          width:imageLoader.targetImage.width,
+                          height:imageLoader.targetImage.height,
+                          selectable: true
+                      });
+
+                      // Remove the old image
+                      canvas.remove(imageLoader.targetImage);
+                      // Add the new image to the canvas
+                      canvas.add(newImg);
+                      canvas.renderAll();
+                  });
+                }
+                reader.readAsDataURL(file);  // Read the file as a data URL
+            })
+   
+      },500)
+  }
+     
+  
+    }
+
+  })
+  </script>
+  
+  
+  </body>
+</html>

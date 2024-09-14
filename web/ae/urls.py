@@ -56,5 +56,6 @@ urlpatterns = [
    path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('sign-in/', user_views.SignInView.as_view(), name='sign_in'),
+    path('create/', user_views.CreateUserView.as_view(), name='user_create'),
 ]+router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

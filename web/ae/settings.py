@@ -45,7 +45,8 @@ INSTALLED_APPS = [
       'corsheaders',
       'categorymanager',
       'templatemanager',
-      'accountmanager'
+      'accountmanager',
+      'storemanager'
 ]
 
 MIDDLEWARE = [

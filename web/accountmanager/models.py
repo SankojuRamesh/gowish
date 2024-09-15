@@ -10,22 +10,36 @@ class RolesModel(models.Model):
 
 class UserManager(BaseUserManager): 
     def create_user(self, phone, password= None,roles=None, **extra_fields):
+        print("******************************************************************************")
         if not phone:
             raise ValueError("plese enter phone number")
-        
+        if not roles:
+            roles = RolesModel.objects.get(id=1)
         user = self.model(phone=phone,roles=roles, **extra_fields)
         user.set_password(password)
         user.save()
         return user
     
-
+    def create_employee(self, phone, password= None,roles=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', False)
+        extra_fields.setdefault('is_active', True)
+        if not phone:
+            raise ValueError("plese enter phone number")
+        if not roles:
+            roles = RolesModel.objects.get(id=2)
+        user = self.model(phone=phone,roles=roles, **extra_fields)
+        user.set_password(password)
+        user.save()
+        return user
     def create_superuser(self,phone, password= None, **extra_fields):
+         
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
         roles = RolesModel.objects.get(id=1)
         if extra_fields.get('is_staff') is not True:
-            raise ValueError( 'Superuser must have is_staff=True.') 
+            raise ValueError( 'Superuser must have is_staff=True.')
             
         if extra_fields.get('is_superuser') is not True:
             raise ValueError( 'Superuser must have is_superuser=True.') 

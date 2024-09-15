@@ -25,6 +25,8 @@ from django.conf import settings
 from rest_framework.routers import DefaultRouter
 # from canvasmanager import views
 from accountmanager import views as user_views
+from categorymanager import views as catViews
+from storemanager import views as storeViews
 
 
 schema_view = get_schema_view(
@@ -41,8 +43,10 @@ schema_view = get_schema_view(
 )
 
 router = DefaultRouter()
-# router.register(r'projects', views.ProjectViewSet, basename='projects')
-# router.register(r'composits', views.CompositViewSet, basename='composits')
+router.register(r'categories', catViews.CategoryView, basename='cateegoryView')
+router.register(r'subcategories', catViews.SubCategoryView, basename='SubcategoryView')
+
+router.register(r'stores', storeViews.StoresViewSet, basename='stores')
 # router.register(r'layers', views.LayerViewSet, basename='LayerViewSet')
 # router.register(r'deeplayers', views.DeepLayerViewSet, basename='DeepLayerViewSet')
 
@@ -52,10 +56,11 @@ router = DefaultRouter()
 urlpatterns = [
     # path('',  views.home),
     path('admin/', admin.site.urls),
-     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-   path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path('sign-in/', user_views.SignInView.as_view(), name='sign_in'),
-    path('create/', user_views.CreateUserView.as_view(), name='user_create'),
+    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('sign_in/', user_views.SignInView.as_view(), name='sign_in'),
+    path('signup/', user_views.UserRegistrationView.as_view(), name='sign_in'),
+    path('employee_signup/', user_views.EmployeeRegistrationView.as_view(), name='employee_sign_in'),
 ]+router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

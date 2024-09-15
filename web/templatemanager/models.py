@@ -6,7 +6,7 @@ from categorymanager import models as catModel
 
 class TemplateModel(models.Model):
     category= models.ForeignKey(catModel.CategoryModel, on_delete=models.CASCADE, related_name="Template_category")
-    category= models.ForeignKey(catModel.SubcategoryModel,  on_delete=models.CASCADE, related_name="Template_subcategory")
+    subcategory= models.ForeignKey(catModel.SubcategoryModel,  on_delete=models.CASCADE, related_name="Template_subcategory")
     template_name = models.CharField(max_length=200)
     template_path=  models.CharField(max_length=200)
     template_thumb = models.ImageField(upload_to='template_thumbs/', default=None)
@@ -55,4 +55,7 @@ class LayerModel(models.Model) :
     font =  models.CharField(max_length=200, null=True, blank=True)     
     inPoin =  models.CharField(max_length=200, null=True, blank=True)
     outPoint =  models.CharField(max_length=200, null=True, blank=True)
+
+
+
 

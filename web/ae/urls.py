@@ -27,6 +27,7 @@ from rest_framework.routers import DefaultRouter
 from accountmanager import views as user_views
 from categorymanager import views as catViews
 from storemanager import views as storeViews
+from templatemanager import views as TemplateViews
 
 
 schema_view = get_schema_view(
@@ -47,7 +48,10 @@ router.register(r'categories', catViews.CategoryView, basename='cateegoryView')
 router.register(r'subcategories', catViews.SubCategoryView, basename='SubcategoryView')
 
 router.register(r'stores', storeViews.StoresViewSet, basename='stores')
-# router.register(r'layers', views.LayerViewSet, basename='LayerViewSet')
+
+router.register(r'tempalts', TemplateViews.TempalteViewSet, basename='TemplateViewSet')
+router.register(r'composits', TemplateViews.CompositViewSet, basename='compositViewSet')
+router.register(r'layers', TemplateViews.LayarViewSet, basename='layerViewSet')
 # router.register(r'deeplayers', views.DeepLayerViewSet, basename='DeepLayerViewSet')
 
 

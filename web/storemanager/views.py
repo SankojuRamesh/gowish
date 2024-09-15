@@ -7,7 +7,7 @@ from .serializers import StoreSerializer
 
 
 class StoresViewSet(viewsets.ModelViewSet):
-    queryset = StoreModel
+    queryset = StoreModel.objects.all()
     serializer_class = StoreSerializer
 
     

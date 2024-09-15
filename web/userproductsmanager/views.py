@@ -11,12 +11,12 @@ from .serializers import  (UserTemplateSerializer,
 
 
 class UserTemplatesViewSet(viewsets.ModelViewSet):
-    queryset = UserTemplatesModel
+    queryset = UserTemplatesModel.objects.all()
     serializer_class = UserTemplateSerializer
 
 
 class UserTemplatesCompositViewSet(viewsets.ModelViewSet):
-    queryset = UserTemplatesComposModel
+    queryset = UserTemplatesComposModel.objects.all()
     serializer_class = UserTemplateCompositSerializer
 
 
@@ -27,9 +27,9 @@ class UserTemplatesLayerViewSet(viewsets.ModelViewSet):
 
 
 class CartViewSet(viewsets.ModelViewSet):
-    queryset = CartModel
+    queryset = CartModel.objects.all()
     serializer_class = UserCartSerializer
 
 class WishListViewSet(viewsets.ModelViewSet):
-    queryset = WishListModel
+    queryset = WishListModel.objects.all()
     serializer_class = UserWishlistSerializer

@@ -8,13 +8,13 @@ from .serializer import CatSerializer, SubCatSerializer
 
 
 class CategoryView(viewsets.ModelViewSet):
-    queryset = CategoryModel
+    queryset = CategoryModel.objects.all()
     serializer_class = CatSerializer
 
 
 
 
 class SubCategoryView(viewsets.ModelViewSet):
-    queryset = SubcategoryModel
+    queryset = SubcategoryModel.objects.all()
     serializer_class = SubCatSerializer
 

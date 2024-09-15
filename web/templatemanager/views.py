@@ -6,18 +6,18 @@ from .serializers import TemplateSerializer, CompositSerializer, LayerSerializer
 
 
 class TempalteViewSet(viewsets.ModelViewSet):
-    queryset = TemplateModel
+    queryset = TemplateModel.objects.all()
     serializer_class = TemplateSerializer
 
 
 
 class CompositViewSet(viewsets.ModelViewSet):
-    queryset = CompositModel
+    queryset = CompositModel.objects.all()
     serializer_class = CompositSerializer
 
 
 class LayarViewSet(viewsets.ModelViewSet):
-    queryset = LayerModel
+    queryset = LayerModel.objects.all()
     serializer_class = LayerSerializer
 
 

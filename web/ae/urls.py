@@ -28,6 +28,7 @@ from accountmanager import views as user_views
 from categorymanager import views as catViews
 from storemanager import views as storeViews
 from templatemanager import views as TemplateViews
+from userproductsmanager import views as  userTemplates
 
 
 schema_view = get_schema_view(
@@ -52,8 +53,12 @@ router.register(r'stores', storeViews.StoresViewSet, basename='stores')
 router.register(r'tempalts', TemplateViews.TempalteViewSet, basename='TemplateViewSet')
 router.register(r'composits', TemplateViews.CompositViewSet, basename='compositViewSet')
 router.register(r'layers', TemplateViews.LayarViewSet, basename='layerViewSet')
-# router.register(r'deeplayers', views.DeepLayerViewSet, basename='DeepLayerViewSet')
+router.register(r'mytemplates', userTemplates.UserTemplatesViewSet, basename='usertemplatesViewSet')
+router.register(r'mytemplates_composits', userTemplates.UserTemplatesCompositViewSet, basename='usertemplatescompositViewSet')
+router.register(r'mytemplates_composits_layers', userTemplates.UserTemplatesLayerViewSet, basename='usertemplatescompositLayerViewSet')
 
+router.register(r'mywishlist', userTemplates.WishListViewSet, basename='userWishlistViewSet')
+router.register(r'cart', userTemplates.CartViewSet, basename='userCartViewSetViewSet')
 
 
 

@@ -12,7 +12,7 @@ class UserTemplatesModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     main_template = models.ForeignKey(TemplateModel, on_delete=models.CASCADE)
     templaate_state = models.CharField(max_length=200, default="Edited",choices = (("Edited", "Edited"), ("Standed", "Standed")) )
-    order_id = models.CharField(default=None, bool=True, max_length=200)
+    order_id = models.CharField(default=None, max_length=200)
 
 
 
@@ -59,7 +59,7 @@ class UserTemplatesLayerModel(models.Model):
 
 class WishListModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    template = models.ForeignKey(TemplateModel)
+    template = models.ForeignKey(TemplateModel, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now=True)
 
 class CartModel(models.Model):

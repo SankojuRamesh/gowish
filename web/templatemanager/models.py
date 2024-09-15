@@ -1,8 +1,9 @@
 from django.db import models
 from categorymanager import models as catModel
+from django.contrib.auth import get_user_model
 
 # Create your models here.
-
+User = get_user_model()
 
 class TemplateModel(models.Model):
     category= models.ForeignKey(catModel.CategoryModel, on_delete=models.CASCADE, related_name="Template_category")
@@ -13,6 +14,7 @@ class TemplateModel(models.Model):
     template_video = models.FileField(upload_to='template_thumbs/',default=None)
     status = models.BooleanField(default=True)
     creatd_at = models.DateTimeField(auto_now=True)
+    created_by =  models.CharField(max_length =200, default='')
 
 
 

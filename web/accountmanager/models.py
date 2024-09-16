@@ -10,7 +10,7 @@ class RolesModel(models.Model):
 
 class UserManager(BaseUserManager): 
     def create_user(self, phone, password= None,roles=None, **extra_fields):
-        print("******************************************************************************")
+         
         if not phone:
             raise ValueError("plese enter phone number")
         if not roles:
@@ -28,6 +28,19 @@ class UserManager(BaseUserManager):
             raise ValueError("plese enter phone number")
         if not roles:
             roles = RolesModel.objects.get(id=2)
+        user = self.model(phone=phone,roles=roles, **extra_fields)
+        user.set_password(password)
+        user.save()
+        return user
+    
+    def create_storeadmin(self, phone, password= None,roles=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', False)
+        extra_fields.setdefault('is_active', True)
+        if not phone:
+            raise ValueError("plese enter phone number")
+        if not roles:
+            roles = RolesModel.objects.get(id=3)
         user = self.model(phone=phone,roles=roles, **extra_fields)
         user.set_password(password)
         user.save()

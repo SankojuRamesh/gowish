@@ -49,7 +49,7 @@ router.register(r'categories', catViews.CategoryView, basename='cateegoryView')
 router.register(r'subcategories', catViews.SubCategoryView, basename='SubcategoryView')
 
 router.register(r'stores', storeViews.StoresViewSet, basename='stores')
-
+# router.register(r'getaddress_pincode', storeViews.get_address, basename='stores')
 router.register(r'tempalts', TemplateViews.TempalteViewSet, basename='TemplateViewSet')
 router.register(r'composits', TemplateViews.CompositViewSet, basename='compositViewSet')
 router.register(r'layers', TemplateViews.LayarViewSet, basename='layerViewSet')
@@ -71,5 +71,7 @@ urlpatterns = [
     path('sign_in/', user_views.SignInView.as_view(), name='sign_in'),
     path('signup/', user_views.UserRegistrationView.as_view(), name='sign_in'),
     path('employee_signup/', user_views.EmployeeRegistrationView.as_view(), name='employee_sign_in'),
+    path('employee_list/', user_views.EmployeeListView.as_view(), name='employee_sign_in'),
+    path('getaddress_pincode/', storeViews.get_address.as_view(), name='getaddress_pincode'),
 ]+router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -26,5 +26,5 @@ class UserWishlistSerializer(serializers.ModelSerializer):
 
 class UserCartSerializer(serializers.ModelSerializer):
     class Meta:
-            model = CartModel
-            fields = '__all__'
+        model = CartModel
+        fields = '__all__'

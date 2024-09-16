@@ -5,7 +5,8 @@ from __future__ import unicode_literals
 from django.contrib.auth import get_user_model
 from rest_framework import generics,serializers
 from rest_framework_simplejwt import serializers as jwt_serializers
-from rest_framework.permissions import AllowAny 
+from rest_framework.permissions import AllowAny, IsAuthenticated
+
  
 from .userserializer import UserRegistrationSerializer, EmployeeRegistrationSerializer
 from rest_framework_simplejwt import views as jwt_views
@@ -16,9 +17,10 @@ class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserRegistrationSerializer
     permission_classes = [AllowAny]
 
+
 class EmployeeRegistrationView(generics.CreateAPIView):
     serializer_class = EmployeeRegistrationSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -54,4 +56,12 @@ class SignInView(jwt_views.TokenObtainPairView):
         context = super().get_serializer_context()
         context.update({"request": self.request})
         return context
+
+
+class EmployeeListView(generics.ListAPIView):
+    queryset = User.objects.filter(roles=2)
+    serializer_class= UserSerializer
+    permission_classes = IsAuthenticated
+
+    
 

@@ -5,7 +5,7 @@ from .models import User as CustomUser
 class EmployeeRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ["name", "phone",'email',   'password' ]
+        fields = ["name", "phone",'email',   'password' ,'profile_pic']
 
     def create(self, validated_data):
         user = CustomUser.objects.create_employee( 
@@ -13,6 +13,7 @@ class EmployeeRegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             password=validated_data['password'],
             name=validated_data['name'], 
+            profile_pic=validated_data['profile_pic'], 
             
         )
         return user
@@ -22,12 +23,13 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)  
     class Meta:
         model = CustomUser
-        fields = ["name", "phone",'email',   'password' ]
+        fields = ["name", "phone",'email',   'password', 'profile_pic' ]
 
     def create(self, validated_data):
         user = CustomUser.objects.create_user( 
             phone=validated_data['phone'],
             email=validated_data['email'],
             password=validated_data['password'],
-            name=validated_data['name'],   )
+            name=validated_data['name'],
+            profile_pic=validated_data['profile_pic'],  )
         return user

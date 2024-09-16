@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics,serializers, viewsets
+from rest_framework import generics,serializers, viewsets, parsers
 from .models import CategoryModel, SubcategoryModel
 from .serializer import CatSerializer, SubCatSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 class CategoryView(viewsets.ModelViewSet):
     queryset = CategoryModel.objects.all()
     serializer_class = CatSerializer
+    parser_classes = (parsers.FormParser,  parsers.MultiPartParser)
     permission_classes = [IsAuthenticated]
 
 

@@ -73,7 +73,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin ):
 
     contact = models.CharField(max_length=100, blank=True, null=True)
 
-    # avatar = models.ImageField(_('Avatar'), upload_to=helper.avatar_path, blank=True, null=True)
+    profile_pic = models.ImageField(  upload_to='profile/', blank=True, null=True)
 
     roles = models.ForeignKey(RolesModel, default=None,  on_delete=models.CASCADE, related_name= "usersroles")
     is_active = models.BooleanField(default=True)

@@ -7,7 +7,8 @@ class CatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CategoryModel
-        fields = "__all__"
+        fields = ['id', 'category_name', 'category_state', 'thumbnail',"image_thumbnail"]
+        
 
 
 

@@ -16,7 +16,7 @@ class CategoryModel(models.Model):
 
     def save(self, *args, **kwargs):
         # Save the original image
-    #     super().save(*args, **kwargs)
+        #     super().save(*args, **kwargs)
 
         # Create and save the thumbnail in WebP format
         if self.thumbnail:
@@ -24,8 +24,7 @@ class CategoryModel(models.Model):
             super().save(*args, **kwargs)
         
     def make_thumbnail(self, image, size=(300, 300)):
-        img = Image.open(image)
-        
+        img = Image.open(image)        
         # Resize image maintaining the aspect ratio
         img.thumbnail(size, Image.Resampling.LANCZOS)  # Use LANCZOS for high-quality resizing
 

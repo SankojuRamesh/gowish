@@ -4,6 +4,8 @@ from .models import CategoryModel, SubcategoryModel
 from .serializer import CatSerializer, SubCatSerializer
 from rest_framework.permissions import IsAuthenticated
 
+from .filters import SubCategoryFilter, CategoryFilter
+
 # Create your views here.
 
 
@@ -11,6 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 class CategoryView(viewsets.ModelViewSet):
     queryset = CategoryModel.objects.all()
     serializer_class = CatSerializer
+    filterset_class  = CategoryFilter
     parser_classes = (parsers.FormParser,  parsers.MultiPartParser)
     permission_classes = [IsAuthenticated]
 
@@ -20,5 +23,6 @@ class CategoryView(viewsets.ModelViewSet):
 class SubCategoryView(viewsets.ModelViewSet):
     queryset = SubcategoryModel.objects.all()
     serializer_class = SubCatSerializer
+    filterset_class  = SubCategoryFilter
     permission_classes = [IsAuthenticated]
 

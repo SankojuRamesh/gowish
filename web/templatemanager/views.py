@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, generics, serializers,views
+from rest_framework import viewsets, generics, serializers,views, parsers
 from .models import TemplateModel, CompositModel, LayerModel
 from .serializers import TemplateSerializer, CompositSerializer, LayerSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -10,6 +10,7 @@ class TempalteViewSet(viewsets.ModelViewSet):
     queryset = TemplateModel.objects.all()
     serializer_class = TemplateSerializer
     permission_classes = [IsAuthenticated]
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser )
 
 
 

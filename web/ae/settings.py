@@ -172,14 +172,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SWAGGER_SETTINGS = {
-   'SECURITY_DEFINITIONS': {
-      'Basic': {
-            'type': 'basic'
-      },
+   'SECURITY_DEFINITIONS': { 
       'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
             'in': 'header'
+            
       }
    }
 }

@@ -46,15 +46,17 @@ class SubcategoryModel(models.Model):
     subcategory_name= models.CharField(max_length=100)
     subcategory_state = models.BooleanField(default=True)
     image_thumbnail = models.ImageField(upload_to='images/', default='')
+    small_thumbnail = models.ImageField(upload_to='images/', default='')
+
     video_thumbnail = models.ImageField(upload_to='images/', default='')
     price =   models.CharField(max_length=100)
 
     def save(self, *args, **kwargs): 
-        if self.thumbnail:
-            self.image_thumbnail = self.make_thumbnail(self.thumbnail)
+        if self.image_thumbnail:
+            self.small_thumbnail = self.make_thumbnail(self.image_thumbnail)
             super().save(*args, **kwargs)
         
-    def make_thumbnail(self, image, size=(300, 300)):
+    def make_thumbnail(self, image, size=(100, 100)):
         img = Image.open(image)        
         # Resize image maintaining the aspect ratio
         img.thumbnail(size, Image.Resampling.LANCZOS)  # Use LANCZOS for high-quality resizing

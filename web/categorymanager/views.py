@@ -25,4 +25,5 @@ class SubCategoryView(viewsets.ModelViewSet):
     serializer_class = SubCatSerializer
     filterset_class  = SubCategoryFilter
     permission_classes = [IsAuthenticated]
+    parser_classes = (parsers.FormParser,  parsers.MultiPartParser)
 

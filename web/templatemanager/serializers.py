@@ -6,6 +6,7 @@ from .models import TemplateModel, CompositModel, LayerModel
 
 
 class TemplateSerializer(serializers.ModelSerializer):
+    
 
     class Meta:
         model = TemplateModel

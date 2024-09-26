@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from PIL import Image
 from io import BytesIO
 from django.core.files import File
+from datetime import datetime
 
 
 # Create your models here.
@@ -21,16 +22,20 @@ class TemplateModel(models.Model):
     creatd_at = models.DateTimeField(auto_now=True)
     created_by =  models.CharField(max_length =200, default='')
 
+    
     def save(self, *args, **kwargs):
+        if isinstance(self.creatd_at, str):
+            # Assume the incoming date is in 'MM/DD/YYYY' format
+            self.creatd_at = datetime.strptime(self.creatd_at, '%m/%d/%Y  %H:%M:%S ').date()
         # Save the original image
         #     super().save(*args, **kwargs)
 
         # Create and save the thumbnail in WebP format
-        if self.thumbnail:
-            self.template_small_thumb = self.make_thumbnail(self.thumbnail)
+        if self.template_thumb:
+            self.template_small_thumb = self.make_thumbnail(self.template_thumb)
             super().save(*args, **kwargs)
         
-    def make_thumbnail(self, image, size=(100, 100)):
+    def make_thumbnail(self, image, size=(80, 80)):
         img = Image.open(image)        
         # Resize image maintaining the aspect ratio
         img.thumbnail(size, Image.Resampling.LANCZOS)  # Use LANCZOS for high-quality resizing

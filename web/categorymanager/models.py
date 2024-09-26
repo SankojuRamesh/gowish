@@ -56,7 +56,7 @@ class SubcategoryModel(models.Model):
             self.small_thumbnail = self.make_thumbnail(self.image_thumbnail)
             super().save(*args, **kwargs)
         
-    def make_thumbnail(self, image, size=(100, 100)):
+    def make_thumbnail(self, image, size=(80, 80)):
         img = Image.open(image)        
         # Resize image maintaining the aspect ratio
         img.thumbnail(size, Image.Resampling.LANCZOS)  # Use LANCZOS for high-quality resizing

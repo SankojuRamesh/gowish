@@ -12,7 +12,7 @@ class TemplateModel(models.Model):
     template_path=  models.CharField(max_length=200)
     template_thumb = models.ImageField(upload_to='template_thumbs/', default=None)
     template_video = models.FileField(upload_to='template_thumbs/',default=None)
-    status = models.BooleanField(default=True)
+    status = models.BooleanField(default=False)
     creatd_at = models.DateTimeField(auto_now=True)
     created_by =  models.CharField(max_length =200, default='')
 

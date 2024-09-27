@@ -64,6 +64,7 @@ router.register(r'cart', userTemplates.CartViewSet, basename='userCartViewSetVie
 
 urlpatterns = [
     # path('',  views.home),
+     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

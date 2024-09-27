@@ -22,6 +22,8 @@ class TemplateModel(models.Model):
     creatd_at = models.DateTimeField(auto_now=True)
     created_by =  models.CharField(max_length =200, default='')
 
+     
+
     
     def save(self, *args, **kwargs):
         if isinstance(self.creatd_at, str):

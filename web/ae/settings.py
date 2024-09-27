@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 Dn51J1A4
 """
-
+from datetime import timedelta
 from pathlib import Path
 import os
 
@@ -171,6 +171,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Set access token to expire after 30 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     # Set refresh token to expire after 7 days
+    'ROTATE_REFRESH_TOKENS': True,                  # Optionally rotate refresh tokens on use
+    'BLACKLIST_AFTER_ROTATION': True,               # Optionally blacklist old refresh tokens
+}
 SWAGGER_SETTINGS = {
    'SECURITY_DEFINITIONS': { 
       'Bearer': {

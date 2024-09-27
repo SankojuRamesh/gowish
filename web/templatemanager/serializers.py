@@ -5,17 +5,13 @@ from .models import TemplateModel, CompositModel, LayerModel
 
 
 
-class TemplateSerializer(serializers.ModelSerializer):
-    category_name = serializers.SerializerMethodField()
-    
+class TemplateSerializer(serializers.ModelSerializer):  
 
     class Meta:
         model = TemplateModel
-        fields = '__all__'
+        fields =  '__all__'
     
-    def get_category(self, obj):
-        print(obj.category)
-        return obj.category.name
+     
 
 
 

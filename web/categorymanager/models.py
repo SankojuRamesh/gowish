@@ -13,7 +13,8 @@ class CategoryModel(models.Model):
     thumbnail = models.ImageField(upload_to='images/', default='')
     image_thumbnail = models.ImageField(upload_to='thumbnails/', default='')
     video_thumbnail = models.ImageField(upload_to='video_thumbnails/', default='')
-
+    
+    
     def save(self, *args, **kwargs):
         # Save the original image
         #     super().save(*args, **kwargs)
